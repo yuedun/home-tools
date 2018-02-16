@@ -4,61 +4,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>home-tools</title>
-	<style type="text/css">
-		#time{
-			font-size: 3em;
-			font-weight: bold;
-			text-align: center;
-			margin: 20px auto;
-		}
-		#weather{
-			
-		}
-		#weather >ul{
-			list-style: none;
-    	font-size: 2em;
-		}
-		.b1{
-			background-color: red; 
-		}
-		.b2{
-			background-color: green;
-		}
-	</style>
-	<script type="text/javascript" src="./vue.js"></script>
-	<script type="text/javascript" src="./moment.min.js"></script>
 </head>
 <body>
-	<div id="app" :class="backgroundClass" v-on:click="changeBackground()">
-		<div id="time">{{clock}}</div>
-		<div id="weather">
-			<ul>
-				<li v-for="w in weathers">{{w}}</li>
-			</ul>
-		</div>
-	</div>
-	<script type="text/javascript">
-		var vm = new Vue({
-			el: "#app",
-			data: {
-				clock: new Date().toLocaleString(),//moment().format("YYYY-MM-DD HH:mm:ss"),
-				weathers: [
-					"今天 阴 11~4℃", "明天 晴 17~6℃", "后天 多云 13~5℃"
-				],
-				backgroundClass: "b1"
-			},
-			created: function () {
-				var that = this;
-				setInterval(function(){
-					that.clock = new Date().toLocaleString()//moment().format("YYYY-MM-DD HH:mm:ss");
-				}, 1000)
-			},
-			methods: {
-				changeBackground: function(){
-					this.backgroundClass = "b2";
-				}
-			}
-		})
-	</script>
+	<!--会被替换掉-->
+	<div id="app"></div>
+	<script type="text/javascript" src="./bundle.js"></script>
 </body>
 </html>
