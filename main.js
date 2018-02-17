@@ -2,30 +2,30 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 
-// Vue.component("time", {
-// 	data: function() {
-// 		return {
-// 			clock: new Date().toLocaleString(), //moment().format("YYYY-MM-DD HH:mm:ss"),
-// 		}
-// 	},
-// 	template: '<div id="time">{{clock}}</div>',
-// 	created: function() {
-// 		var that = this;
-// 		setInterval(function() {
-// 			that.clock = new Date().toLocaleString() //moment().format("YYYY-MM-DD HH:mm:ss");
-// 		}, 1000)
-// 	},
-// });
-// Vue.component("weather", {
-// 	data: function() {
-// 		return {
-// 			weathers: [
-// 				"今天 阴 11~4℃", "明天 晴 17~6℃", "后天 多云 13~5℃"
-// 			],
-// 		}
-// 	},
-// 	template: '<div id="weather">' + '	<ul>' + '		<li v-for="w in weathers">{{w}}</li>' + '	</ul>' + '</div>',
-// });
+Vue.component("timeshow", {
+	data: function() {
+		return {
+			clock: new Date().toLocaleString(), //moment().format("YYYY-MM-DD HH:mm:ss"),
+		}
+	},
+	template: '<div id="time">{{clock}}</div>',
+	created: function() {
+		var that = this;
+		setInterval(function() {
+			that.clock = new Date().toLocaleString() //moment().format("YYYY-MM-DD HH:mm:ss");
+		}, 1000)
+	},
+});
+Vue.component("weather", {
+	data: function() {
+		return {
+			weathers: [
+				"今天 阴 11~4℃", "明天 晴 17~6℃", "后天 多云 13~5℃"
+			],
+		}
+	},
+	template: '<div id="weather">' + '	<ul>' + '		<li v-for="w in weathers">{{w}}</li>' + '	</ul>' + '</div>',
+});
 
 // 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)
 Vue.use(VueRouter);
@@ -55,7 +55,7 @@ const router = new VueRouter({
 // 从而让整个应用都有路由功能
 const app = new Vue({
 	router,
-	components: { App },
+	components: { App },//{App: App}的简称，配置组件供template中使用
 	template: '<App/>'
 	// render: createEle => createEle(App)
 }).$mount('#app');
