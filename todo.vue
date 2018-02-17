@@ -1,16 +1,22 @@
 <template>
-<ul>
-	<li v-for="item in list">{{item}}</li>
+<ul id="todo-list">
+	<li v-for="(item, index) in list" :key="index">{{item}}</li>
 </ul>
 </template>
 
 <script>
 export default {
-	name: "todo",
 	data(){
 		return {
-			list: ["ejtgreog", "ehgoireno", "oijnfodisngfo", "orejjbomvorsfr"]
+			list: ["待办事项一", "待办事项二", "待办事项三"]
 		}
 	}
 }
 </script>
+
+<style type="text/css">
+	#todo-list{
+		font-size: 2em;
+		list-style: none;
+	}
+</style>

@@ -4,6 +4,10 @@
   "description": "利用�利用废旧手机显示时间，天气，待办事项，即时通知等",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1"
   },
