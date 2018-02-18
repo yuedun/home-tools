@@ -31,7 +31,7 @@ app.get('/sendMsg', function (req, res) {
 app.get('/getWeather', function (req, res) {
     request("http://service.envicloud.cn:8082/v2/weatherforecast/EXVLZHVUMTQ3NDYXNZE2NTY0NG==/101020100",
     function (error, response, body) {
-        res.json(body)
+        res.send(body)
     })
 })
 var server = app.listen(3000);

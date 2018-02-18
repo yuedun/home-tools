@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     reciveMsg: function() {
+      this.show = false;
       socket.emit("reciveMsg", "接收到消息");
     }
   }
