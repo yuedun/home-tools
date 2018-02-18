@@ -17,7 +17,7 @@ export default {
       that.clock = d.toLocaleString();
       //晚上10点后背景黑色
       if (d.getHours()>=22 || d.getHours() <= 6) {
-        that.$parent.backgroundClass = "black";
+        that.$parent.backgroundClass = "night";
       } else {
         that.$parent.backgroundClass = "b1";
       }

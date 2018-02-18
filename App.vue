@@ -52,16 +52,16 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: #0099FF;
 	text-align: center;
 }
 .b1 {
-  background-color: green;
+  background-color: #006633;
 }
 .b2 {
   background-color: red;
 }
-.black {
-  background-color: black;
+.night {
+  background-color: #010111;
 }
 </style>
