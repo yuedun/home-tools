@@ -51,7 +51,7 @@ module.exports = {
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': {
-				NODE_ENV: 'production'//'development'
+				NODE_ENV: '"production"'//'"development"'//'"production"'//需要带单双引号
 			}
 		}),
 		new webpack.optimize.UglifyJsPlugin({
