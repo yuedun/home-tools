@@ -18,6 +18,8 @@ export default {
       //晚上10点后背景黑色
       if (d.getHours()>=22 || d.getHours() <= 6) {
         that.$parent.backgroundClass = "black";
+      } else {
+        that.$parent.backgroundClass = "b1";
       }
     }, 1000);
   }

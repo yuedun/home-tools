@@ -1,5 +1,5 @@
 <template>
-  <div id="app" @click="changeBackground()" :class="backgroundClass">
+  <div id="app" @click="changeBackground()" :class="backgroundClass" :style="{height: h + 'px'}">
 	  <timeshow></timeshow>
 	  <weather></weather>
 	  <todo></todo>
@@ -26,8 +26,13 @@ import message from "./message.vue";
 export default {
   data() {
     return {
+      h: 300,
       backgroundClass: "b1"
     };
+  },
+  created(){
+    var domh = window.outerHeight;
+    this.h=domh;
   },
   methods: {
     changeBackground: function() {

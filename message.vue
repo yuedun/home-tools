@@ -1,6 +1,6 @@
 <template>
 <div id="message">
-	<p @click="reciveMsg()"><span>消息：</span><span>{{message}}</span></p>
+	<p @click="reciveMsg()"><span v-show="show">新消息：{{message}}</span></p>
 </div>
 </template>
 
@@ -11,30 +11,30 @@ var socket = io("http://localhost:3000");
 export default {
   data() {
     return {
-      message: " "
+      message: " ",
+      show: false
     };
   },
   created() {
-	var that = this;
+    var that = this;
     socket.on("connect", function() {});
     socket.on("event", function(data) {});
     socket.on("disconnect", function() {});
-	socket.on("message", function(data) {
-	  console.log(data);
-	  that.message = data.msg;
-	  that.$parent.backgroundClass = "b2";
+    socket.on("message", function(data) {
+      that.show = true;
+      that.message = data.msg;
     });
   },
   methods: {
-	  reciveMsg: function(){
-		  socket.emit("reciveMsg", "接收到消息");
-	  }
+    reciveMsg: function() {
+      socket.emit("reciveMsg", "接收到消息");
+    }
   }
 };
 </script>
 
 <style type="text/css">
-#message {
-  font-size: 2em;
-}
+  #message {
+    font-size: 2em;
+  }
 </style>

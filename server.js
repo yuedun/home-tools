@@ -2,6 +2,7 @@ var express = require('express')
 var ejs = require("ejs");
 var path = require("path");
 var app = express();
+var request = require("request");
 var SocketServer = require("./socket-server.js");
 
 // view engine setup环境变量设置
@@ -23,6 +24,15 @@ app.get('/', function (req, res) {
 app.get('/sendMsg', function (req, res) {
     SocketServer.sendMsg()
     res.send("ok")
+})
+/**
+ * 获取天气信息
+ */
+app.get('/getWeather', function (req, res) {
+    request("http://service.envicloud.cn:8082/v2/weatherforecast/EXVLZHVUMTQ3NDYXNZE2NTY0NG==/101020100",
+    function (error, response, body) {
+        res.json(body)
+    })
 })
 var server = app.listen(3000);
 

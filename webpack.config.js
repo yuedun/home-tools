@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: './main.js',
@@ -15,14 +16,26 @@ module.exports = {
 					js: 'babel-loader'
 				}
 			}
-		}, {
+		}
+		, {
 			test: /\.js$/,
 			exclude: /node_modules/,
 			loader: "babel-loader"
-		}, {
+		}
+		, {
 			test: /\.css$/,
 			loader: "style-loader!css-loader"
-		}]
+		}
+		, {
+			test: /\.(png|jpg|gif)$/,
+			use: [
+				{
+					loader: 'file-loader',
+					options: {}
+				}
+			]
+		}
+	]
 	},
 	resolve: {
 		alias: {
