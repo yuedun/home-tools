@@ -6,7 +6,12 @@
 
 <script>
 import io from "socket.io-client";
-var socket = io(location.host);
+var socket = io(location.host, {
+        'reconnection': true,
+        'reconnectionDelay': 5000,
+        'reconnectionDelayMax': 10000,
+        'reconnectionAttempts': 3
+    });
 
 export default {
   data() {

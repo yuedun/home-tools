@@ -1,7 +1,7 @@
 <template>
   <div id="app" @click="changeBackground()" :class="backgroundClass" :style="{height: h + 'px'}">
-	  <timeshow></timeshow>
 	  <weather></weather>
+    <timeshow></timeshow>
 	  <todo></todo>
 		<message></message>
 	  <p>

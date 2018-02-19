@@ -13,31 +13,37 @@ import axios from "axios";
 export default {
   data() {
     return {
-      weathers: [{
-        cond:{cond_d:"", cond_n:""},
-        tmp:{max:"", min:""}
-      },{
-        cond:{cond_d:"", cond_n:""},
-        tmp:{max:"", min:""}
-      },{
-        cond:{cond_d:"", cond_n:""},
-        tmp:{max:"", min:""}
-      }]
+      weathers: [
+        {
+          cond: { cond_d: "", cond_n: "" },
+          tmp: { max: "", min: "" }
+        },
+        {
+          cond: { cond_d: "", cond_n: "" },
+          tmp: { max: "", min: "" }
+        },
+        {
+          cond: { cond_d: "", cond_n: "" },
+          tmp: { max: "", min: "" }
+        }
+      ]
     };
   },
-  created(){
+  created() {
     this.getWeather();
   },
   methods: {
-    getWeather(){
+    getWeather() {
       var that = this;
-      axios.get("/getWeather")
-      .then(res=>{
-        console.log(res.data);
-        that.weathers = res.data.forecast;
-      }).catch(err=>{
-        console.log(err)
-      })
+      axios
+        .get("/getWeather")
+        .then(res => {
+          console.log(res.data);
+          that.weathers = res.data.forecast;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };
@@ -46,5 +52,7 @@ export default {
 #weather > ul {
   list-style: none;
   font-size: 2em;
+  margin: 0;
+  padding-top: 20px;
 }
 </style>
