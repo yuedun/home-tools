@@ -52,7 +52,7 @@ export default {
   text-align: center;
 }
 #time #hour {
-  font-size: 7em;
+  font-size: 6.7em;
 }
 #time #second {
   font-size: 3em;
