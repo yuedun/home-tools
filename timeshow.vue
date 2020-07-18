@@ -2,7 +2,7 @@
 <div id="timecontent">
   <div>
     <div id="time"><span id="hour">{{hour}}</span><span id="second">:{{second}}</span></div>
-    <div id="day"><span>{{day}}</span><span>{{'星期一'}}</span></div>
+    <div id="day"><span>{{day}}</span><span>{{week}}</span></div>
   </div>
 </div>
 </template>
@@ -15,7 +15,8 @@ export default {
     return {
       day: this.formatDate(d),
       hour: this.formatTime(d),
-      second: this.getSecond(d)
+      second: d.second(),
+      week: d.weekday(),
     };
   },
   created: function() {
@@ -24,7 +25,7 @@ export default {
       var d = moment();
       that.day = that.formatDate(d);
       that.time = that.formatTime(d);
-      that.second = that.getSecond(d);
+      that.second = d.second();
       //晚上10点后背景黑色
       if (d.hour() >= 22 || d.hour() <= 6) {
         that.$parent.backgroundClass = "night";
@@ -39,9 +40,6 @@ export default {
     },
     formatDate(m) {
       return m.format("YYYY/MM/DD");
-    },
-    getSecond(m) {
-      return m.second();
     }
   }
 };
